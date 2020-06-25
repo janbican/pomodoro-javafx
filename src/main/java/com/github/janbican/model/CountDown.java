@@ -2,20 +2,29 @@ package com.github.janbican.model;
 
 import java.util.*;
 
-public class CountDown {
+public final class CountDown {
     private final TimeMode mode;
-    private Set<CountDownObserver> observers;
-    private final Timer timer;
+    private final Set<CountDownObserver> observers;
+    private Timer timer;
     private int secondsRemaining;
+    private boolean isRunning;
 
     public CountDown(TimeMode mode, List<CountDownObserver> observers) {
         this.mode = mode;
         this.observers = new HashSet<>(observers);
-        timer = new Timer();
         secondsRemaining = mode.getDurationInSeconds();
+        isRunning = false;
     }
 
     public void start() {
+        if (!isRunning) {
+            isRunning = true;
+            timer = new Timer();
+            startCountDown();
+        }
+    }
+
+    private void startCountDown() {
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
@@ -33,7 +42,15 @@ public class CountDown {
     }
 
     public void stop() {
-        timer.cancel();
+        if (isRunning) {
+            isRunning = false;
+            timer.cancel();
+        }
+    }
+
+    public void reset() {
+        stop();
+        secondsRemaining = mode.getDurationInSeconds();
     }
 
     public TimeMode getMode() {
@@ -50,5 +67,9 @@ public class CountDown {
 
     public int getSecondsRemaining() {
         return secondsRemaining;
+    }
+
+    public boolean isRunning() {
+        return isRunning;
     }
 }

@@ -10,9 +10,9 @@
    <children>
       <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
-            <Button fx:id="pomodoroBtn" mnemonicParsing="false" text="Pomodoro" />
-            <Button fx:id="shortBreakBtn" mnemonicParsing="false" text="Short Break" />
-            <Button fx:id="longBreakBtn" mnemonicParsing="false" text="Long Break" />
+            <Button fx:id="pomodoroBtn" mnemonicParsing="false" onAction="#pomodoroButtonClicked" text="Pomodoro" />
+            <Button fx:id="shortBreakBtn" mnemonicParsing="false" onAction="#shortBreakButtonClicked" text="Short Break" />
+            <Button fx:id="longBreakBtn" mnemonicParsing="false" onAction="#longBreakButtonClicked" text="Long Break" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="155.0" prefWidth="325.0">
@@ -26,9 +26,9 @@
       </HBox>
       <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
-            <Button fx:id="startBtn" mnemonicParsing="false" text="Start" />
-            <Button fx:id="stopBtn" mnemonicParsing="false" text="Stop" />
-            <Button fx:id="resetBtn" mnemonicParsing="false" text="Reset" />
+            <Button fx:id="startBtn" mnemonicParsing="false" onAction="#startButtonClicked" text="Start" />
+            <Button fx:id="stopBtn" mnemonicParsing="false" onAction="#stopButtonClicked" text="Stop" />
+            <Button fx:id="resetBtn" mnemonicParsing="false" onAction="#resetButtonClicked" text="Reset" />
          </children>
       </HBox>
    </children>
