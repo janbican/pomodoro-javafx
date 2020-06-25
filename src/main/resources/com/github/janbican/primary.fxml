@@ -1,10 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="370.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.janbican.Controller">
+<VBox fx:id="container" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="325.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.janbican.Controller">
    <children>
-      <Label fx:id="clockLabel" text="Label" />
+      <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+         <children>
+            <Button fx:id="pomodoroBtn" mnemonicParsing="false" text="Pomodoro" />
+            <Button fx:id="shortBreakBtn" mnemonicParsing="false" text="Short Break" />
+            <Button fx:id="longBreakBtn" mnemonicParsing="false" text="Long Break" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="155.0" prefWidth="325.0">
+         <children>
+            <Label fx:id="clockLabel" text="24:59">
+               <font>
+                  <Font name="Helvetica Neue" size="72.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+         <children>
+            <Button fx:id="startBtn" mnemonicParsing="false" text="Start" />
+            <Button fx:id="stopBtn" mnemonicParsing="false" text="Stop" />
+            <Button fx:id="resetBtn" mnemonicParsing="false" text="Reset" />
+         </children>
+      </HBox>
    </children>
 </VBox>

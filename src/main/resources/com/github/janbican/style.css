@@ -1,0 +1,36 @@
+
+#container {
+    -fx-font-family: Monaco;
+    -fx-background-color: tomato;
+}
+
+Button {
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 0px;
+    -fx-border-width: 1px;
+    -fx-border-color: #454545;
+    -fx-cursor: hand;
+    -fx-background-insets: 0;
+}
+
+#startBtn {
+    -fx-background-color: #28a745;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #28a745;
+}
+
+#startBtn:hover {
+    -fx-background-color: #1d7831;
+    -fx-border-color: #1d7831;
+}
+
+#stopBtn {
+    -fx-background-color: #dc3545;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: #dc3545;
+}
+
+#stopBtn:hover {
+    -fx-background-color: #b7202e;
+    -fx-border-color: #b7202e;
+}

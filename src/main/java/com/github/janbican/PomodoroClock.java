@@ -4,8 +4,7 @@ import com.github.janbican.model.CountDownObserver;
 import javafx.application.Platform;
 import javafx.scene.control.Label;
 
-public class PomodoroClock implements CountDownObserver
-{
+public class PomodoroClock implements CountDownObserver {
     private final Label clockLabel;
 
     public PomodoroClock(Label clockLabel) {
@@ -15,7 +14,7 @@ public class PomodoroClock implements CountDownObserver
     @Override
     public void update(int seconds) {
         Platform.runLater(() ->
-                clockLabel.setText(secondsToString(seconds)));
+            clockLabel.setText(secondsToString(seconds)));
     }
 
     private String secondsToString(int seconds) {
