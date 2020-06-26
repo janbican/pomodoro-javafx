@@ -2,13 +2,18 @@ package com.github.janbican;
 
 import com.github.janbican.model.CountDown;
 import com.github.janbican.model.TimeMode;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.util.Collections;
 
 public class Controller {
     @FXML private Label clockLabel;
+    @FXML private Button pomodoroBtn;
+    @FXML private Button shortBreakBtn;
+    @FXML private Button longBreakBtn;
 
     private CountDown countdown;
     private PomodoroClock clock;
@@ -27,26 +32,35 @@ public class Controller {
         countdown.stop();
     }
 
-    public void resetButtonClicked() {
-        countdown.reset();
-        clock.set(countdown.getMode());
-    }
-
-    public void pomodoroButtonClicked() {
+    public void pomodoroButtonClicked(ActionEvent event) {
         changeMode(TimeMode.POMODORO);
+        highlightButton((Button) event.getSource());
     }
 
     private void changeMode(TimeMode mode) {
         countdown.stop();
-        countdown = new CountDown(mode, Collections.singletonList(clock));
+        countdown.setMode(mode);
         countdown.start();
     }
 
-    public void shortBreakButtonClicked() {
-        changeMode(TimeMode.SHORT_BREAK);
+    private void highlightButton(Button button) {
+        removeCurrentHighlighting();
+        button.getStyleClass().add("highlightBtn");
     }
 
-    public void longBreakButtonClicked() {
+    private void removeCurrentHighlighting() {
+        pomodoroBtn.getStyleClass().remove("highlightBtn");
+        shortBreakBtn.getStyleClass().remove("highlightBtn");
+        longBreakBtn.getStyleClass().remove("highlightBtn");
+    }
+
+    public void shortBreakButtonClicked(ActionEvent event) {
+        changeMode(TimeMode.SHORT_BREAK);
+        highlightButton((Button) event.getSource());
+    }
+
+    public void longBreakButtonClicked(ActionEvent event) {
         changeMode(TimeMode.LONG_BREAK);
+        highlightButton((Button) event.getSource());
     }
 }

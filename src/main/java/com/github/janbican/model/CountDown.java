@@ -3,8 +3,8 @@ package com.github.janbican.model;
 import java.util.*;
 
 public final class CountDown {
-    private final TimeMode mode;
     private final Set<CountDownObserver> observers;
+    private TimeMode mode;
     private Timer timer;
     private int secondsRemaining;
     private boolean isRunning;
@@ -55,6 +55,12 @@ public final class CountDown {
 
     public TimeMode getMode() {
         return mode;
+    }
+
+    public void setMode(TimeMode mode) {
+        this.mode = mode;
+        secondsRemaining = mode.getDurationInSeconds();
+        notifyObservers();
     }
 
     public void addObserver(CountDownObserver observer) {

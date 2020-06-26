@@ -18,8 +18,4 @@ public enum TimeMode {
     public void setDurationInSeconds(int seconds) {
         durationInSeconds = seconds;
     }
-
-    public static TimeMode fromString(String str) {
-        return TimeMode.valueOf(str.toUpperCase());
-    }
 }

@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="container" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="325.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.janbican.Controller">
+<VBox fx:id="container" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="359.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.janbican.Controller">
    <children>
       <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
-            <Button fx:id="pomodoroBtn" mnemonicParsing="false" onAction="#pomodoroButtonClicked" text="Pomodoro" />
-            <Button fx:id="shortBreakBtn" mnemonicParsing="false" onAction="#shortBreakButtonClicked" text="Short Break" />
-            <Button fx:id="longBreakBtn" mnemonicParsing="false" onAction="#longBreakButtonClicked" text="Long Break" />
+            <Button fx:id="pomodoroBtn" mnemonicParsing="false" onAction="#pomodoroButtonClicked" text="Pomodoro">
+               <styleClass>
+                  <String fx:value="modeBtn" />
+                  <String fx:value="highlightBtn" />
+               </styleClass></Button>
+            <Button fx:id="shortBreakBtn" mnemonicParsing="false" onAction="#shortBreakButtonClicked" styleClass="modeBtn" text="Short Break" />
+            <Button fx:id="longBreakBtn" mnemonicParsing="false" onAction="#longBreakButtonClicked" styleClass="modeBtn" text="Long Break" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="155.0" prefWidth="325.0">
+      <HBox alignment="CENTER" prefHeight="116.0" prefWidth="325.0">
          <children>
             <Label fx:id="clockLabel" text="24:59">
                <font>
-                  <Font name="Helvetica Neue" size="72.0" />
+                  <Font name="Monaco" size="96.0" />
                </font>
             </Label>
          </children>
@@ -28,7 +33,6 @@
          <children>
             <Button fx:id="startBtn" mnemonicParsing="false" onAction="#startButtonClicked" text="Start" />
             <Button fx:id="stopBtn" mnemonicParsing="false" onAction="#stopButtonClicked" text="Stop" />
-            <Button fx:id="resetBtn" mnemonicParsing="false" onAction="#resetButtonClicked" text="Reset" />
          </children>
       </HBox>
    </children>

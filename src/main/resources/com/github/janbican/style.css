@@ -1,16 +1,35 @@
 
+* {
+    -fx-text-fill: #ffffff;
+}
+
 #container {
-    -fx-font-family: Monaco;
-    -fx-background-color: tomato;
+    -fx-font-family: Monaco, sans-serif;
+    -fx-background-color: #f05b56;
 }
 
 Button {
+    -fx-cursor: hand;
+    -fx-background-insets: 0;
+}
+
+.modeBtn {
+    -fx-background-color: none;
+}
+
+.highlightBtn {
+    -fx-border-width: 1px;
+    -fx-border-color: #ffffff;
+    -fx-border-style: dashed;
+    -fx-border-radius: 2px;
+}
+
+#startBtn,
+#stopBtn {
     -fx-background-color: #ffffff;
     -fx-border-radius: 0px;
     -fx-border-width: 1px;
     -fx-border-color: #454545;
-    -fx-cursor: hand;
-    -fx-background-insets: 0;
 }
 
 #startBtn {
