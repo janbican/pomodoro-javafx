@@ -24,32 +24,13 @@ Button {
     -fx-border-radius: 2px;
 }
 
-#startBtn,
-#stopBtn {
+#toggleBtn {
+    -fx-font-size: 18px;
     -fx-background-color: #ffffff;
-    -fx-border-radius: 0px;
-    -fx-border-width: 1px;
-    -fx-border-color: #454545;
+    -fx-text-fill: #f05b56;
+    -fx-border-radius: 2px;
 }
 
-#startBtn {
-    -fx-background-color: #28a745;
-    -fx-text-fill: #ffffff;
-    -fx-border-color: #28a745;
-}
-
-#startBtn:hover {
-    -fx-background-color: #1d7831;
-    -fx-border-color: #1d7831;
-}
-
-#stopBtn {
-    -fx-background-color: #dc3545;
-    -fx-text-fill: #ffffff;
-    -fx-border-color: #dc3545;
-}
-
-#stopBtn:hover {
-    -fx-background-color: #b7202e;
-    -fx-border-color: #b7202e;
+#toggleBtn:hover {
+    -fx-opacity: 0.8;
 }

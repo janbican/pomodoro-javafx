@@ -11,6 +11,7 @@ import java.util.Collections;
 
 public class Controller {
     @FXML private Label clockLabel;
+    @FXML private Button toggleBtn;
     @FXML private Button pomodoroBtn;
     @FXML private Button shortBreakBtn;
     @FXML private Button longBreakBtn;
@@ -24,15 +25,28 @@ public class Controller {
         countdown = new CountDown(TimeMode.POMODORO, Collections.singletonList(clock));
     }
 
-    public void startButtonClicked() {
-        countdown.start();
+    public void toggleBtnClicked() {
+        if (countdown.isRunning())
+            stop();
+        else
+            start();
     }
 
-    public void stopButtonClicked() {
+    private void stop() {
         countdown.stop();
+        updateToggleBtn("START");
     }
 
-    public void pomodoroButtonClicked(ActionEvent event) {
+    private void updateToggleBtn(String text) {
+        toggleBtn.setText(text);
+    }
+
+    private void start() {
+        countdown.start();
+        updateToggleBtn("STOP");
+    }
+
+    public void pomodoroBtnClicked(ActionEvent event) {
         changeMode(TimeMode.POMODORO);
         highlightButton((Button) event.getSource());
     }
@@ -40,7 +54,7 @@ public class Controller {
     private void changeMode(TimeMode mode) {
         countdown.stop();
         countdown.setMode(mode);
-        countdown.start();
+        start();
     }
 
     private void highlightButton(Button button) {
@@ -54,12 +68,12 @@ public class Controller {
         longBreakBtn.getStyleClass().remove("highlightBtn");
     }
 
-    public void shortBreakButtonClicked(ActionEvent event) {
+    public void shortBreakBtnClicked(ActionEvent event) {
         changeMode(TimeMode.SHORT_BREAK);
         highlightButton((Button) event.getSource());
     }
 
-    public void longBreakButtonClicked(ActionEvent event) {
+    public void longBreakBtnClicked(ActionEvent event) {
         changeMode(TimeMode.LONG_BREAK);
         highlightButton((Button) event.getSource());
     }
