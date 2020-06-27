@@ -6,11 +6,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 
 import java.util.Collections;
 
 public class Controller {
     @FXML private Label clockLabel;
+    @FXML private ProgressBar clockProgressBar;
     @FXML private Button toggleBtn;
     @FXML private Button pomodoroBtn;
     @FXML private Button shortBreakBtn;
@@ -21,7 +23,7 @@ public class Controller {
 
     @FXML
     public void initialize() {
-        clock = new PomodoroClock(clockLabel, TimeMode.POMODORO);
+        clock = new PomodoroClock(clockLabel, clockProgressBar, TimeMode.POMODORO);
         countdown = new CountDown(TimeMode.POMODORO, Collections.singletonList(clock));
     }
 
@@ -54,6 +56,7 @@ public class Controller {
     private void changeMode(TimeMode mode) {
         countdown.stop();
         countdown.setMode(mode);
+        clock.setMode(mode);
         start();
     }
 

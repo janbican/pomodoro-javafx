@@ -15,6 +15,8 @@ Button {
 
 .modeBtn {
     -fx-background-color: none;
+    -fx-border-width: 1px;
+    -fx-border-color: transparent;
 }
 
 .highlightBtn {
@@ -33,4 +35,15 @@ Button {
 
 #toggleBtn:hover {
     -fx-opacity: 0.8;
+}
+
+#clockProgressBar > .track {
+    -fx-background-color: transparent;
+}
+
+#clockProgressBar .bar {
+    -fx-background-color: #ffffff;
+    -fx-background-insets: 0;
+    -fx-border-radius: 0;
+    -fx-padding: 0;
 }
