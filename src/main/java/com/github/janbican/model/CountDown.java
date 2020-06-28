@@ -3,21 +3,21 @@ package com.github.janbican.model;
 import java.util.*;
 
 public final class CountDown {
-    private final Set<CountDownObserver> observers;
+    private CountDownObserver observer;
     private TimeMode mode;
     private Timer timer;
     private int secondsRemaining;
     private boolean isRunning;
 
-    public CountDown(TimeMode mode, List<CountDownObserver> observers) {
+    public CountDown(TimeMode mode, CountDownObserver observer) {
+        this.observer = Objects.requireNonNull(observer);
         this.mode = mode;
-        this.observers = new HashSet<>(observers);
         secondsRemaining = mode.getDurationInSeconds();
         isRunning = false;
     }
 
     public void start() {
-        if (!isRunning) {
+        if (!isRunning && secondsRemaining != 0) {
             isRunning = true;
             timer = new Timer();
             startCountDown();
@@ -29,16 +29,17 @@ public final class CountDown {
             @Override
             public void run() {
                 secondsRemaining -= 1;
-                notifyObservers();
+                observer.update(secondsRemaining);
                 if (secondsRemaining == 0)
-                    timer.cancel();
+                    timeIsUp();
             }
         }, 1000, 1000);
     }
 
-    private void notifyObservers() {
-        for (CountDownObserver observer : observers)
-            observer.update(secondsRemaining);
+    private void timeIsUp() {
+        isRunning = false;
+        timer.cancel();
+        observer.timeIsUp();
     }
 
     public void stop() {
@@ -49,7 +50,6 @@ public final class CountDown {
     }
 
     public void reset() {
-        stop();
         secondsRemaining = mode.getDurationInSeconds();
     }
 
@@ -60,15 +60,15 @@ public final class CountDown {
     public void setMode(TimeMode mode) {
         this.mode = mode;
         secondsRemaining = mode.getDurationInSeconds();
-        notifyObservers();
+        observer.update(secondsRemaining);
     }
 
-    public void addObserver(CountDownObserver observer) {
-        observers.add(observer);
+    public CountDownObserver getObserver() {
+        return observer;
     }
 
-    public void removeObserver(CountDownObserver observer) {
-        observers.remove(observer);
+    public void setObserver(CountDownObserver observer) {
+        this.observer = observer;
     }
 
     public int getSecondsRemaining() {

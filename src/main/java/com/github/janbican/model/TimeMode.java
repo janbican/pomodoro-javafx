@@ -1,9 +1,9 @@
 package com.github.janbican.model;
 
 public enum TimeMode {
-    POMODORO(20),
-    SHORT_BREAK(10),
-    LONG_BREAK(20);
+    POMODORO(10),
+    SHORT_BREAK(4),
+    LONG_BREAK(7);
 
     private int durationInSeconds;
 

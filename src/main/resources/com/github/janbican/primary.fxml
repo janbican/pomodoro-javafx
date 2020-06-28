@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="container" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="359.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.janbican.Controller">
+<VBox fx:id="container" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="359.0" styleClass="container" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.janbican.Controller">
    <children>
       <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="359.0" spacing="5.0">
          <children>
@@ -25,7 +25,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="159.0" prefWidth="302.0">
                <children>
-                  <ProgressBar fx:id="clockProgressBar" prefHeight="2.0" prefWidth="290.0" progress="0.0" />
+                  <ProgressBar fx:id="clockProgressBar" prefHeight="2.0" prefWidth="290.0" progress="0.0" styleClass="clockProgressBar" />
                   <Label fx:id="clockLabel" prefHeight="84.0" prefWidth="289.0" text="24:59">
                      <font>
                         <Font name="Monaco" size="96.0" />
@@ -37,7 +37,7 @@
       </HBox>
       <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
-            <Button fx:id="toggleBtn" mnemonicParsing="false" onAction="#toggleBtnClicked" prefHeight="46.0" prefWidth="184.0" text="START" />
+            <Button fx:id="toggleBtn" mnemonicParsing="false" onAction="#toggleBtnClicked" prefHeight="46.0" prefWidth="184.0" styleClass="toggleBtn" text="START" />
          </children>
       </HBox>
    </children>

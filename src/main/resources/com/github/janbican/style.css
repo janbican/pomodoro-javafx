@@ -3,7 +3,7 @@
     -fx-text-fill: #ffffff;
 }
 
-#container {
+.container {
     -fx-font-family: Monaco, sans-serif;
     -fx-background-color: #f05b56;
 }
@@ -26,24 +26,32 @@ Button {
     -fx-border-radius: 2px;
 }
 
-#toggleBtn {
+.toggleBtn {
     -fx-font-size: 18px;
     -fx-background-color: #ffffff;
     -fx-text-fill: #f05b56;
     -fx-border-radius: 2px;
 }
 
-#toggleBtn:hover {
+.toggleBtn:hover {
     -fx-opacity: 0.8;
 }
 
-#clockProgressBar > .track {
+.clockProgressBar > .track {
     -fx-background-color: transparent;
 }
 
-#clockProgressBar .bar {
+.clockProgressBar .bar {
     -fx-background-color: #ffffff;
     -fx-background-insets: 0;
     -fx-border-radius: 0;
     -fx-padding: 0;
+}
+
+.time-is-up-background {
+    -fx-background-color: #0fa4a9;
+}
+
+.time-is-up-color {
+    -fx-text-fill: #0fa4a9;
 }

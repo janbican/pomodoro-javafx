@@ -7,10 +7,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-
-import java.util.Collections;
+import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class Controller {
+    @FXML private VBox container;
     @FXML private Label clockLabel;
     @FXML private ProgressBar clockProgressBar;
     @FXML private Button toggleBtn;
@@ -23,15 +25,32 @@ public class Controller {
 
     @FXML
     public void initialize() {
-        clock = new PomodoroClock(clockLabel, clockProgressBar, TimeMode.POMODORO);
-        countdown = new CountDown(TimeMode.POMODORO, Collections.singletonList(clock));
+        clock = new PomodoroClock(
+                this, clockLabel, clockProgressBar, TimeMode.POMODORO);
+        countdown = new CountDown(TimeMode.POMODORO, clock);
     }
 
     public void toggleBtnClicked() {
         if (countdown.isRunning())
             stop();
         else
-            start();
+            activate();
+    }
+
+    private void activate() {
+        if (countdown.getSecondsRemaining() == 0)
+            reset();
+        start();
+    }
+
+    private void reset() {
+        removeTimeIsUpStyles();
+        countdown.reset();
+    }
+
+    private void removeTimeIsUpStyles() {
+        container.getStyleClass().remove("time-is-up-background");
+        toggleBtn.getStyleClass().remove("time-is-up-color");
     }
 
     private void stop() {
@@ -57,6 +76,7 @@ public class Controller {
         countdown.stop();
         countdown.setMode(mode);
         clock.setMode(mode);
+        removeTimeIsUpStyles();
         start();
     }
 
@@ -79,5 +99,22 @@ public class Controller {
     public void longBreakBtnClicked(ActionEvent event) {
         changeMode(TimeMode.LONG_BREAK);
         highlightButton((Button) event.getSource());
+    }
+
+    public void timeIsUp() {
+        addTimeIsUpStyles();
+        playSound();
+        updateToggleBtn("RESET");
+    }
+
+    private void addTimeIsUpStyles() {
+        container.getStyleClass().add("time-is-up-background");
+        toggleBtn.getStyleClass().add("time-is-up-color");
+    }
+
+    private void playSound() {
+        Media sound = new Media(this.getClass().getResource("sound.wav").toString());
+        MediaPlayer player = new MediaPlayer(sound);
+        player.play();
     }
 }
