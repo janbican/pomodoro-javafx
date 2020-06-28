@@ -12,20 +12,20 @@
    <children>
       <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="359.0" spacing="5.0">
          <children>
-            <Button fx:id="pomodoroBtn" mnemonicParsing="false" onAction="#pomodoroBtnClicked" text="Pomodoro">
+            <Button fx:id="pomodoroBtn" mnemonicParsing="false" onAction="#modeBtnClicked" text="Pomodoro">
                <styleClass>
-                  <String fx:value="modeBtn" />
-                  <String fx:value="highlightBtn" />
+                  <String fx:value="mode-btn" />
+                  <String fx:value="highlight-btn" />
                </styleClass></Button>
-            <Button fx:id="shortBreakBtn" mnemonicParsing="false" onAction="#shortBreakBtnClicked" styleClass="modeBtn" text="Short Break" />
-            <Button fx:id="longBreakBtn" mnemonicParsing="false" onAction="#longBreakBtnClicked" styleClass="modeBtn" text="Long Break" />
+            <Button fx:id="shortBreakBtn" mnemonicParsing="false" onAction="#modeBtnClicked" styleClass="mode-btn" text="Short Break" />
+            <Button fx:id="longBreakBtn" mnemonicParsing="false" onAction="#modeBtnClicked" styleClass="mode-btn" text="Long Break" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="159.0" prefWidth="359.0">
          <children>
             <VBox alignment="CENTER" prefHeight="159.0" prefWidth="302.0">
                <children>
-                  <ProgressBar fx:id="clockProgressBar" prefHeight="2.0" prefWidth="290.0" progress="0.0" styleClass="clockProgressBar" />
+                  <ProgressBar fx:id="clockProgressBar" prefHeight="2.0" prefWidth="290.0" progress="0.0" styleClass="clock-progress-bar" />
                   <Label fx:id="clockLabel" prefHeight="84.0" prefWidth="289.0" text="24:59">
                      <font>
                         <Font name="Monaco" size="96.0" />
@@ -37,7 +37,7 @@
       </HBox>
       <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" spacing="5.0">
          <children>
-            <Button fx:id="toggleBtn" mnemonicParsing="false" onAction="#toggleBtnClicked" prefHeight="46.0" prefWidth="184.0" styleClass="toggleBtn" text="START" />
+            <Button fx:id="toggleBtn" mnemonicParsing="false" onAction="#toggleBtnClicked" prefHeight="46.0" prefWidth="184.0" styleClass="toggle-btn" text="START" />
          </children>
       </HBox>
    </children>

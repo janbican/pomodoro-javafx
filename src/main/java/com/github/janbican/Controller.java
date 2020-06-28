@@ -10,6 +10,8 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Controller {
     @FXML private VBox container;
@@ -22,12 +24,21 @@ public class Controller {
 
     private CountDown countdown;
     private PomodoroClock clock;
+    private Map<Button, TimeMode> buttonToMode;
 
     @FXML
     public void initialize() {
         clock = new PomodoroClock(
                 this, clockLabel, clockProgressBar, TimeMode.POMODORO);
         countdown = new CountDown(TimeMode.POMODORO, clock);
+        initializeButtonToMode();
+    }
+
+    private void initializeButtonToMode() {
+        buttonToMode = new HashMap<>();
+        buttonToMode.put(pomodoroBtn, TimeMode.POMODORO);
+        buttonToMode.put(shortBreakBtn, TimeMode.SHORT_BREAK);
+        buttonToMode.put(longBreakBtn, TimeMode.LONG_BREAK);
     }
 
     public void toggleBtnClicked() {
@@ -37,8 +48,17 @@ public class Controller {
             activate();
     }
 
+    private void stop() {
+        countdown.stop();
+        updateToggleBtn("RESUME");
+    }
+
+    private void updateToggleBtn(String text) {
+        toggleBtn.setText(text);
+    }
+
     private void activate() {
-        if (countdown.getSecondsRemaining() == 0)
+        if (countdown.isTimeUp())
             reset();
         start();
     }
@@ -53,52 +73,34 @@ public class Controller {
         toggleBtn.getStyleClass().remove("time-is-up-color");
     }
 
-    private void stop() {
-        countdown.stop();
-        updateToggleBtn("START");
-    }
-
-    private void updateToggleBtn(String text) {
-        toggleBtn.setText(text);
-    }
-
     private void start() {
         countdown.start();
         updateToggleBtn("STOP");
     }
 
-    public void pomodoroBtnClicked(ActionEvent event) {
-        changeMode(TimeMode.POMODORO);
-        highlightButton((Button) event.getSource());
+    public void modeBtnClicked(ActionEvent event) {
+        Button button = (Button) event.getSource();
+        TimeMode mode = buttonToMode.get(button);
+        changeMode(mode);
+        highlightModeButton(button);
     }
 
     private void changeMode(TimeMode mode) {
-        countdown.stop();
         countdown.setMode(mode);
         clock.setMode(mode);
         removeTimeIsUpStyles();
         start();
     }
 
-    private void highlightButton(Button button) {
-        removeCurrentHighlighting();
-        button.getStyleClass().add("highlightBtn");
+    private void highlightModeButton(Button button) {
+        removeModeButtonHighlighting();
+        button.getStyleClass().add("highlight-btn");
     }
 
-    private void removeCurrentHighlighting() {
-        pomodoroBtn.getStyleClass().remove("highlightBtn");
-        shortBreakBtn.getStyleClass().remove("highlightBtn");
-        longBreakBtn.getStyleClass().remove("highlightBtn");
-    }
-
-    public void shortBreakBtnClicked(ActionEvent event) {
-        changeMode(TimeMode.SHORT_BREAK);
-        highlightButton((Button) event.getSource());
-    }
-
-    public void longBreakBtnClicked(ActionEvent event) {
-        changeMode(TimeMode.LONG_BREAK);
-        highlightButton((Button) event.getSource());
+    private void removeModeButtonHighlighting() {
+        pomodoroBtn.getStyleClass().remove("highlight-btn");
+        shortBreakBtn.getStyleClass().remove("highlight-btn");
+        longBreakBtn.getStyleClass().remove("highlight-btn");
     }
 
     public void timeIsUp() {

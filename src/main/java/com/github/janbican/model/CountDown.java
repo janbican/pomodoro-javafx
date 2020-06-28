@@ -51,6 +51,7 @@ public final class CountDown {
 
     public void reset() {
         secondsRemaining = mode.getDurationInSeconds();
+        observer.update(secondsRemaining);
     }
 
     public TimeMode getMode() {
@@ -58,9 +59,9 @@ public final class CountDown {
     }
 
     public void setMode(TimeMode mode) {
+        stop();
         this.mode = mode;
-        secondsRemaining = mode.getDurationInSeconds();
-        observer.update(secondsRemaining);
+        reset();
     }
 
     public CountDownObserver getObserver() {
@@ -77,5 +78,9 @@ public final class CountDown {
 
     public boolean isRunning() {
         return isRunning;
+    }
+
+    public boolean isTimeUp() {
+        return secondsRemaining == 0;
     }
 }
