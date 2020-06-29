@@ -5,5 +5,4 @@ module com.github.janbican {
 
     opens com.github.janbican to javafx.fxml;
     exports com.github.janbican;
-    exports com.github.janbican.model;
 }

@@ -4,13 +4,25 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="container" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="359.0" styleClass="container" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.janbican.Controller">
+<VBox fx:id="container" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="359.0" styleClass="container" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.janbican.TimerController">
    <children>
-      <HBox alignment="BOTTOM_CENTER" prefHeight="100.0" prefWidth="359.0" spacing="5.0">
+      <AnchorPane>
+         <children>
+            <ImageView fitHeight="24.0" fitWidth="25.0" layoutX="321.0" layoutY="2.0" onMouseClicked="#settingsIconClicked" pickOnBounds="true" preserveRatio="true" styleClass="settings-icon" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="2.0">
+               <image>
+                  <Image url="@settings-icon.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <HBox alignment="BOTTOM_CENTER" prefHeight="51.0" prefWidth="359.0" spacing="5.0">
          <children>
             <Button fx:id="pomodoroBtn" mnemonicParsing="false" onAction="#modeBtnClicked" text="Pomodoro">
                <styleClass>

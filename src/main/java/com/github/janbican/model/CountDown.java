@@ -12,7 +12,7 @@ public final class CountDown {
     public CountDown(TimeMode mode, CountDownObserver observer) {
         this.observer = Objects.requireNonNull(observer);
         this.mode = mode;
-        secondsRemaining = mode.getDurationInSeconds();
+        secondsRemaining = mode.getSeconds();
         isRunning = false;
     }
 
@@ -50,7 +50,7 @@ public final class CountDown {
     }
 
     public void reset() {
-        secondsRemaining = mode.getDurationInSeconds();
+        secondsRemaining = mode.getSeconds();
         observer.update(secondsRemaining);
     }
 

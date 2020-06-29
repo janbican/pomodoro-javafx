@@ -10,10 +10,12 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Controller {
+public class TimerController {
     @FXML private VBox container;
     @FXML private Label clockLabel;
     @FXML private ProgressBar clockProgressBar;
@@ -117,6 +119,12 @@ public class Controller {
     private void playSound() {
         Media sound = new Media(this.getClass().getResource("sound.wav").toString());
         MediaPlayer player = new MediaPlayer(sound);
+        player.setVolume(Settings.volume);
         player.play();
+    }
+
+    public void settingsIconClicked() throws IOException {
+        stop();
+        App.setRoot("settings");
     }
 }

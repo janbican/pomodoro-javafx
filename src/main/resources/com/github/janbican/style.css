@@ -55,3 +55,11 @@ Button {
 .time-is-up-color {
     -fx-text-fill: #0fa4a9;
 }
+
+.settings-icon:hover {
+    -fx-cursor: hand;
+}
+
+Spinner .text-field {
+    -fx-text-fill: #000000;
+}

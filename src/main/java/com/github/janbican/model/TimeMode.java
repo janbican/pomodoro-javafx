@@ -1,21 +1,29 @@
 package com.github.janbican.model;
 
 public enum TimeMode {
-    POMODORO(10),
-    SHORT_BREAK(4),
-    LONG_BREAK(7);
+    POMODORO(25),
+    SHORT_BREAK(5),
+    LONG_BREAK(10);
 
-    private int durationInSeconds;
+    private int seconds;
 
-    TimeMode(int seconds) {
-        this.durationInSeconds = seconds;
+    TimeMode(int minutes) {
+        seconds = minutes * 60;
     }
 
-    public int getDurationInSeconds() {
-        return durationInSeconds;
+    public int getSeconds() {
+        return seconds;
     }
 
-    public void setDurationInSeconds(int seconds) {
-        durationInSeconds = seconds;
+    public int getMinutes() {
+        return seconds / 60;
+    }
+
+    public void setSeconds(int seconds) {
+        this.seconds = seconds;
+    }
+
+    public void setMinutes(int minutes) {
+        seconds = minutes * 60;
     }
 }
