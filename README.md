@@ -6,4 +6,6 @@ The Pomodoro Technique is a time management method developed by Francesco Cirill
 
 ## Demonstration
 
-![Recordit GIF](http://g.recordit.co/ikKpmdSeoD.gif)
+![Recordit GIF](http://g.recordit.co/97qODnnqHD.gif)
+
+![Recordit GIF](http://g.recordit.co/npsbrNViJ8.gif)
