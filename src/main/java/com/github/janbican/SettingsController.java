@@ -20,15 +20,21 @@ public class SettingsController {
     }
 
     private void setSpinnerValues() {
-        pomodoroSpinner.getValueFactory().setValue(TimeMode.POMODORO.getMinutes());
-        shortBreakSpinner.getValueFactory().setValue(TimeMode.SHORT_BREAK.getMinutes());
-        longBreakSpinner.getValueFactory().setValue(TimeMode.LONG_BREAK.getMinutes());
+        pomodoroSpinner.getValueFactory()
+                .setValue(TimeMode.POMODORO.getMinutes());
+        shortBreakSpinner.getValueFactory()
+                .setValue(TimeMode.SHORT_BREAK.getMinutes());
+        longBreakSpinner.getValueFactory()
+                .setValue(TimeMode.LONG_BREAK.getMinutes());
     }
 
     public void saveBtnClicked() throws IOException {
-        TimeMode.POMODORO.setMinutes(pomodoroSpinner.getValue());
-        TimeMode.SHORT_BREAK.setMinutes(shortBreakSpinner.getValue());
-        TimeMode.LONG_BREAK.setMinutes(longBreakSpinner.getValue());
+        TimeMode.POMODORO.setMinutes(
+                pomodoroSpinner.getValue());
+        TimeMode.SHORT_BREAK.setMinutes(
+                shortBreakSpinner.getValue());
+        TimeMode.LONG_BREAK.setMinutes(
+                longBreakSpinner.getValue());
         Settings.volume = volumeSlider.getValue();
         App.setRoot("timer");
     }
