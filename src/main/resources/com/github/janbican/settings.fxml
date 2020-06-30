@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
@@ -7,51 +8,70 @@
 <?import javafx.scene.control.SpinnerValueFactory.IntegerSpinnerValueFactory?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox fx:id="container" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="359.0" spacing="10.0" styleClass="container" stylesheets="@style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.github.janbican.SettingsController">
    <children>
-      <Label text="Time (minutes)" />
-      <HBox alignment="CENTER" prefHeight="61.0" prefWidth="359.0">
+      <Label text="Time (minutes)">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <HBox alignment="CENTER" prefHeight="61.0" prefWidth="359.0" spacing="10.0">
          <children>
 
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="TOP_CENTER" prefHeight="61.0" prefWidth="75.0">
                <children>
-                  <Label text="Pomodoro" />
-                  <Spinner fx:id="pomodoroSpinner">
+                  <Label text="Pomodoro">
+                     <font>
+                        <Font size="12.0" />
+                     </font></Label>
+                  <Spinner fx:id="pomodoroSpinner" editable="true" maxWidth="90.0">
                      <valueFactory>
-                        <SpinnerValueFactory.IntegerSpinnerValueFactory max="120" min="1" />
+                        <SpinnerValueFactory.IntegerSpinnerValueFactory max="99" min="1" />
                      </valueFactory>
                   </Spinner>
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="TOP_CENTER" prefHeight="61.0" prefWidth="75.0">
                <children>
-                  <Label text="Short Break" />
-                  <Spinner fx:id="shortBreakSpinner">
+                  <Label text="Short Break">
+                     <font>
+                        <Font size="12.0" />
+                     </font></Label>
+                  <Spinner fx:id="shortBreakSpinner" editable="true" maxWidth="90.0">
                      <valueFactory>
-                        <SpinnerValueFactory.IntegerSpinnerValueFactory max="120" min="1" />
+                        <SpinnerValueFactory.IntegerSpinnerValueFactory max="99" min="1" />
                      </valueFactory>
                   </Spinner>
                </children>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox alignment="TOP_CENTER" prefHeight="61.0" prefWidth="75.0">
                <children>
-                  <Label text="Long Break" />
-                  <Spinner fx:id="longBreakSpinner">
+                  <Label text="Long Break">
+                     <font>
+                        <Font size="12.0" />
+                     </font></Label>
+                  <Spinner fx:id="longBreakSpinner" editable="true" maxWidth="90.0">
                      <valueFactory>
-                        <SpinnerValueFactory.IntegerSpinnerValueFactory max="120" min="1" />
+                        <SpinnerValueFactory.IntegerSpinnerValueFactory max="99" min="1" />
                      </valueFactory>
                   </Spinner>
                </children>
             </VBox>
          </children>
       </HBox>
-      <VBox prefHeight="55.0" prefWidth="359.0">
+      <VBox alignment="CENTER" prefHeight="30.0" prefWidth="359.0" spacing="5.0">
          <children>
-            <Label text="Volume" />
-            <Slider fx:id="volumeSlider" max="1.0" value="0.5" />
+            <Label text="Volume">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Slider fx:id="volumeSlider" max="1.0" maxWidth="250.0" value="0.5" />
          </children>
       </VBox>
-      <Button mnemonicParsing="false" onAction="#saveBtnClicked" text="Save" />
+      <Button mnemonicParsing="false" onAction="#saveBtnClicked" prefHeight="42.0" prefWidth="97.0" styleClass="save-btn" text="Save">
+         <VBox.margin>
+            <Insets top="25.0" />
+         </VBox.margin></Button>
    </children>
 </VBox>

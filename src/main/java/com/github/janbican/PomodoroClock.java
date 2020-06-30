@@ -6,6 +6,11 @@ import javafx.application.Platform;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 
+/*
+ * Observers CountDown instance
+ * Takes care of displaying progress
+ * through Label and ProgressBar
+ */
 class PomodoroClock implements CountDownObserver {
     private final TimerController controller;
     private final Label clockLabel;

@@ -3,12 +3,16 @@
     -fx-text-fill: #ffffff;
 }
 
+.root {
+    -fx-focus-color: transparent;
+}
+
 .container {
     -fx-font-family: Monaco, sans-serif;
     -fx-background-color: #f05b56;
 }
 
-Button {
+.button {
     -fx-cursor: hand;
     -fx-background-insets: 0;
 }
@@ -26,14 +30,16 @@ Button {
     -fx-border-radius: 2px;
 }
 
-.toggle-btn {
+.toggle-btn,
+.save-btn {
     -fx-font-size: 18px;
     -fx-background-color: #ffffff;
     -fx-text-fill: #f05b56;
     -fx-border-radius: 2px;
 }
 
-.toggle-btn:hover {
+.toggle-btn:hover,
+.save-btn:hover {
     -fx-opacity: 0.8;
 }
 
@@ -60,6 +66,7 @@ Button {
     -fx-cursor: hand;
 }
 
-Spinner .text-field {
+.spinner .text-field {
     -fx-text-fill: #000000;
+    -fx-alignment: center;
 }

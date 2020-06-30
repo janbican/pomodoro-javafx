@@ -19,10 +19,6 @@ public enum TimeMode {
         return seconds / 60;
     }
 
-    public void setSeconds(int seconds) {
-        this.seconds = seconds;
-    }
-
     public void setMinutes(int minutes) {
         seconds = minutes * 60;
     }
